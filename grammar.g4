@@ -4,14 +4,14 @@ program : statement;
 
 statement : assign | print;
 
-assign : ID’=\n’ rowlist ‘\n’ ;
-rowlist : row | row “\n” rowlist;
-row : NUMBER | NUMBER “ “ row;
+assign : ID expr rowlist newline;
+rowlist : row | row newline rowlist;
+row : NUMBER | NUMBER row;
+operation : ID expr ID | ID mult ID;
+scalar: NUMBER mult ID;
 
-add : ID ‘+’ ID;
-subtract : ID ‘-’ ID;
-multiply : ID ‘*’ ID | NUMBER ‘*’ ID;
-dot product : ID ‘.’ ID;
-
+expr : '=' | '+' | '-' | '.' ;
+mult : '*';
+newline : '\n';
 ID : [a-z]+;
 NUMBER: [0-9]+;
