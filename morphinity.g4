@@ -1,8 +1,8 @@
-grammar MORPHINITY;
+grammar morphinity;
 
 program : statement;
 
-statement : assign | print;
+statement : assign | operation | scalar;
 
 assign : ID expr rowlist newline;
 rowlist : row | row newline rowlist;
