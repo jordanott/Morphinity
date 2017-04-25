@@ -4,7 +4,7 @@ program : statement;
 
 statement : assign | operation | scalar;
 
-assign : ID expr newline rowlist;
+assign : ID expr newline rowlist | ID expr ID | ID expr operation | ID expr scalar;
 rowlist : row newline sub;
 sub : row newline | row newline sub;
 row : NUMBER space item | NUMBER;
