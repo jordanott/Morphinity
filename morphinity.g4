@@ -1,16 +1,15 @@
 grammar morphinity;
 
-program : statement;
+program : statement+ ;
 
-statement : assign | operation | scalar;
+statement : assign | operation | scalar | print;
 
-assign : ID expr newline rowlist | ID expr ID | ID expr operation | ID expr scalar;
-rowlist : row newline sub;
-sub : row newline | row newline sub;
-row : NUMBER space item | NUMBER;
-item : NUMBER space item | NUMBER;
+assign : ID expr newline matrix | ID expr ID | ID expr operation | ID expr scalar;
+matrix : (row newline)+ ;
+row : (NUMBER space)+ NUMBER;
 operation : ID expr ID | ID mult ID;
 scalar: NUMBER mult ID;
+print: 'print' space ID;
 
 expr : '=' | '+' | '-' | '.' ;
 mult : '*';
