@@ -3,7 +3,12 @@ a=
 4 5 6
 print a
 b=
+2 3 4
 5 6 7
 print b
-c=b
+c=a+b
 print c
+d=a-b
+print d
+e=a.b
+print e

@@ -2,17 +2,16 @@ grammar morphinity;
 
 program : statement+ ;
 
-statement : assign | operation | scalar | print;
+statement : assign | operation | print;
 
-assign : ID expr newline matrix | ID expr ID newline| ID expr operation newline| ID expr scalar newline;
+assign : ID equals (newline matrix | ID newline);
 matrix : (row newline)+ ;
 row : (NUMBER space)+ NUMBER;
-operation : ID expr ID | ID mult ID;
-scalar: NUMBER mult ID;
+operation : ID equals (ID expr ID | NUMBER expr ID | ID expr NUMBER) newline;
 print: 'print ' ID newline;
 
-expr : '=' | '+' | '-' | '.' ;
-mult : '*';
+equals: '=';
+expr : '+' | '-' | '.' | '*';
 newline : '\n';
 space : ' ';
 ID : [a-z]+;
