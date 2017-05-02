@@ -18,4 +18,9 @@ $ cd Morphinity
 $ antlr4 morphinity.g4
 $ javac morphinity*.java
 $ grun morphinity program -gui
+```  
+Running a morph file
+```
+$ javac *.java  
+$ java Main example.morph
 ```
