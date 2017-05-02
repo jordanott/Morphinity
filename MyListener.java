@@ -1,3 +1,4 @@
+
 import java.util.*;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -15,38 +16,38 @@ public class MyListener extends morphinityBaseListener {
   @Override
   public void exitAssign(morphinityParser.AssignContext ctx)
   {
+    ArrayList<ArrayList<Integer>> values = new ArrayList();
     //Get variable name
     String variableName = ctx.ID(0).getText();
 
     //TODO: Handle if it is an expression or just a = b
     if(ctx.ID().size() > 1)
     {
-      //works for case a = b
+      //works for case a = b when b exists (add a check that b exists)
       String value = ctx.ID(1).getText();
+      values = variables.get(value);
     }
     else{
-      ArrayList<ArrayList<Integer>> values = new ArrayList();
-      for(int i = 0; i<ctx.row().size(); ++i)
+
+      for(int i = 0; i<ctx.matrix().row().size(); ++i)
       {
-        values.add(new Arraylist());
-        for(int j =0; j<ctx.row(0).NUMBER().size(); ++j)
+        values.add(new ArrayList());
+        for(int j =0; j<ctx.matrix().row(0).NUMBER().size(); ++j)
         {
-          values.get(i).add(Integer.parseInt(ctx.row(i).NUMBER(j).getText()));
+          values.get(i).add(Integer.parseInt(ctx.matrix().row(i).NUMBER(j).getText()));
         }
       }
-    }
-
-    if(ctx.ID().size() > 1)
-    {
 
     }
-    else
-      variables.put(variableName, values);
+
+    variables.put(variableName, values);
+
   }
 
   @Override
-  public void exitPrint(morphinityParser.AssignContext ctx)
+  public void exitPrint(morphinityParser.PrintContext ctx)
   {
     System.out.println(variables.get(ctx.ID().getText()).toString());
   }
+
 }

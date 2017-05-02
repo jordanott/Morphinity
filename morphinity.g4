@@ -4,12 +4,12 @@ program : statement+ ;
 
 statement : assign | operation | scalar | print;
 
-assign : ID expr newline matrix | ID expr ID | ID expr operation | ID expr scalar;
+assign : ID expr newline matrix | ID expr ID newline| ID expr operation newline| ID expr scalar newline;
 matrix : (row newline)+ ;
 row : (NUMBER space)+ NUMBER;
 operation : ID expr ID | ID mult ID;
 scalar: NUMBER mult ID;
-print: 'print' space ID;
+print: 'print ' ID newline;
 
 expr : '=' | '+' | '-' | '.' ;
 mult : '*';
