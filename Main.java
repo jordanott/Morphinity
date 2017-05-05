@@ -8,13 +8,6 @@ public class Main{
 
   public static void main(String[] args)
   {
-  /*
-    morphinityLexer lexer = new morphinityLexer(new ANTLRFileStream("test.mu"));
-    morphinityParser parser = new morphinityParser(new CommonTokenStream(lexer));
-    ParseTree tree = parser.component();
-    MyVisitor visitor = new MyVisitor();
-    visitor.visit(tree);
-    */
     try {
           ANTLRInputStream input = new ANTLRInputStream(
               new FileInputStream(args[0]));

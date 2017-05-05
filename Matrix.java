@@ -15,12 +15,19 @@ public class Matrix {
         return -101; // or some error value
     }
     public boolean setElement(int i, int j, double newVal){
-        // sets the element at the i,j position in the matrix
-        if(i > values.size() | j > values.get(0).size()){
-            // check size
-            return false;
+        if(i < values.size()){
+          if(j < values.get(i).size())
+            values.get(i).set(j, newVal);
         }
-        values.get(i).set(j, newVal);
+        // sets the element at the i,j position in the matrix
+        if(i >= values.size()){
+            // check size
+            values.add(new ArrayList<Double>());
+        }
+        if(j >= values.get(i).size()){
+            values.get(i).add(newVal);
+        }
+
         return true;
     }
     public ArrayList<Double> getRow(int i){
