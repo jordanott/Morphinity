@@ -1,6 +1,8 @@
 # Morphinity
 A programming language for matrix math operations  
 
+Abby Atchison, Austin Auyers and Josh graves are contributors on this project.
+
 ![AltText](http://images.amcnetworks.com/ifc.com/wp-content/uploads/2015/01/The-Matrix.jpg)
 
 Antlr setup
